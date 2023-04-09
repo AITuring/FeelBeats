@@ -24,23 +24,23 @@ const Header = (props) => {
         }
     };
 
-    const uploadProps = {
-        name: 'file',
-        action: 'http://39.103.151.150:64641/api/fileUpload',
-        showUploadList: false,
-        onChange(info) {
-            if (info.file.status !== 'uploading') {
-                console.log(info.file, info.fileList);
-            }
-            if (info.file.status === 'done') {
-                console.log(info.file.response)
-                props.setImgName(info.file.response);
-                message.success(`${info.file.name} file uploaded successfully`);
-            } else if (info.file.status === 'error') {
-                message.error(`${info.file.name} file upload failed.`);
-            }
-        },
-    };
+    // const uploadProps = {
+    //     name: 'file',
+    //     action: 'http://39.103.151.150:64641/api/fileUpload',
+    //     showUploadList: false,
+    //     onChange(info) {
+    //         if (info.file.status !== 'uploading') {
+    //             console.log(info.file, info.fileList);
+    //         }
+    //         if (info.file.status === 'done') {
+    //             console.log(info.file.response)
+    //             props.setImgName(info.file.response);
+    //             message.success(`${info.file.name} file uploaded successfully`);
+    //         } else if (info.file.status === 'error') {
+    //             message.error(`${info.file.name} file upload failed.`);
+    //         }
+    //     },
+    // };
 
     useEffect(() => {
         showIcon();
