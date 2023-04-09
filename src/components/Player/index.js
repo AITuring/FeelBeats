@@ -2,6 +2,8 @@ import React, { useState, useRef } from 'react';
 
 // 导入黑胶唱片图片和播放按钮图片
 import cover from './cover.jpg';
+import needle from '../../imgs/needle.png';
+import disc from '../../imgs/disc.png';
 import playBtn from './play.png';
 import './style.css'; // 导入组件样式
 
@@ -21,7 +23,7 @@ function MP3Player(props) {
 
     return (
         <>
-            <div class="icon_rotate" >
+            <div class="card" >
                 <div class={isPlaying ? "needle" : "stop"} onClick={handlePlayPauseClick}></div>
                 <div class="icon_center">
                     <img src={cover} alt="歌曲图片" class="song_img" />
