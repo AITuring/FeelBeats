@@ -80,3 +80,23 @@
   margin-left: 32px;
   cursor: pointer;
 }
+
+.close {
+  position: absolute;
+  left: 23%;
+  top: 50%;
+  transform: translate(-50%, -23%);
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+  border-radius: 4px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeBtn {
+  height: 20px;
+  width: 20px;
+}

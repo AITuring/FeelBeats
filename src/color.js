@@ -5,7 +5,7 @@ const ColorList = [
         bgColor: '#efefef'
     },
     {
-        name: ['无感','无聊','无所谓','随便','还好'],
+        name: ['无感','无聊','无所谓','随便','还好', '中性'],
         color: '#CCA872',
         bgColor: '#E5DACA'
     },

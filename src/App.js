@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header';
 import Player from './components/Player';
 import Drawer from './components/Drawer';
+import back from './imgs/back.svg';
 import mp3 from './test.mp3';
 import ColorList from './color';
 
@@ -63,24 +64,32 @@ function App() {
   // 获取音乐url
   useEffect(() => {
     if (musicList.length > 0) {
-      setCurrentMusic(`http://192.168.10.96:64641/music?fileName=${musicList[0]}`);
+      setCurrentMusic(`http://39.103.151.105:64641/music?fileName=${musicList[0]}`);
     }
   }, [musicList]);
 
   // 获取图片url
   useEffect(() => {
     if (imgName) {
-      setImgSrc(`http://192.168.10.96:64641/img?imgPath=${imgName}`);
+      setImgSrc(`http://39.103.151.105:64641/img?imgPath=${imgName}`);
     }
   }, [imgName])
 
   // 获取历史列表
   useEffect(() => {
-    fetch('/cards').then(response => response.json()).then(data => {
-      setHistory(data);
-      console.log(data)
-    })
-  }, [])
+    if (showDrawer) {
+      fetch('/cards').then(response => response.json()).then(data => {
+        setHistory(data.map(item => {
+          const currentEmo = ColorList.find(item => item.name.includes(item.emotionTag));
+          return {
+            ...item,
+            bgColor: currentEmo? currentEmo.bgColor : ColorList[1].bgColor
+          }
+        }));
+        console.log(history)
+      })
+    }
+  }, [showDrawer])
 
   // 保存卡片
   const createCard = () => {
@@ -165,11 +174,28 @@ function App() {
         disabled={inputMode}
         coverColor={emotion.color}
       />
-      <Drawer
-        showDrawer={showDrawer}
-        setShowDrawer={setShowDrawer}
-        history={history}
-      />
+      {
+      showDrawer &&(
+          <>
+            <Drawer
+              showDrawer={showDrawer}
+              setShowDrawer={setShowDrawer}
+              history={history}
+              setIsPlaying={setIsPlaying}
+              setCurrentMusic={setCurrentMusic}
+              setImgName={setImgName}
+              setWords={setWords}
+              setEmotion={setEmotion}
+            />
+            <div
+              className='close'
+              onClick={() => setShowDrawer(false)}>
+                <img src={back} alt="" className='closeBtn'/>
+              </div>
+          </>
+        )
+      }
+
     </div>
   );
 }
