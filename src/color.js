@@ -1,5 +1,15 @@
 const ColorList = [
     {
+        name: ['default'],
+        color: '#efefef',
+        bgColor: '#efefef'
+    },
+    {
+        name: ['无感','无聊','无所谓','随便','还好'],
+        color: '#CCA872',
+        bgColor: '#E5DACA'
+    },
+    {
         name: ['愉悦', '开心', '满足', '阳光', '从容'],
         color: '#14CC83',
         bgColor: '#CCFFEB'
@@ -105,11 +115,6 @@ const ColorList = [
         name: ['古典','优雅','高贵','高级','酒店','高端','会所'],
         color: '#CCAE7A',
         bgColor: '#E5D8C1'
-    },
-    {
-        name: ['无感','无聊','无所谓','随便','还好'],
-        color: '#CCA872',
-        bgColor: '#E5DACA'
     },
 ];
 

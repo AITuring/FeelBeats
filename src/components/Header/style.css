@@ -29,6 +29,21 @@
     cursor: pointer;
 }
 
-.icon:last-child {
-    margin-right: 0;
+.musicIcon {
+    width: 38px;
+    height: 38px;
+    display: block;
+    background: url('../../imgs/musicIconBg.png') no-repeat;
+    background-size: 38px 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconEnter {
+    cursor: pointer;
+}
+
+.iconNotEnter {
+    cursor: not-allowed;
 }
