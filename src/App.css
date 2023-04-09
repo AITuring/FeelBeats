@@ -1,5 +1,5 @@
 .App {
-  background-color: #EFEFEF;
+  /* background-color: #EFEFEF; */
   width: 100vw;
   height: 100vh;
   position: relative;
@@ -11,11 +11,12 @@
   border: none;
   width: 600px;
   height: 34px;
+  line-height: 34px;
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
   padding: 0 10px;
-  background-color: #EFEFEF;
+  background-color: transparent;
   font-size: 16px;
 }
 

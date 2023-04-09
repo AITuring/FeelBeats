@@ -23,9 +23,9 @@ function MP3Player(props) {
 
     return (
         <div className='record'>
-            <div class={isPlaying ? "needle" : "stop"} onClick={handlePlayPauseClick}></div>
-            <div class="center">
-                <div class="cover" onClick={handlePlayPauseClick}>
+            <div className={isPlaying ? "needle" : "stop"} onClick={handlePlayPauseClick}></div>
+            <div className="center">
+                <div className="cover" onClick={handlePlayPauseClick}>
                 </div>
             </div>
             <audio ref={audioRef} src={props.src} />
