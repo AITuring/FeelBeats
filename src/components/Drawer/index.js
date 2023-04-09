@@ -14,7 +14,7 @@ const Drawer = (props) => {
                         }}
                         onClick={() => {
                             props.setIsPlaying(true);
-                            props.setCurrentMusic(`http://39.103.151.105:64641/music?fileName=${item.musicName}`);
+                            props.setCurrentMusic(`http://39.103.151.150:64641/api/music?fileName=${item.musicName}`);
                             props.setWords(item.text);
                             props.setImgName(item.imgPath);
                             const res = ColorList.find(v => v.name.includes(item.emotionTag));

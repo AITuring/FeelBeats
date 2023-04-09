@@ -5,7 +5,7 @@ import Header from './components/Header';
 import Player from './components/Player';
 import Drawer from './components/Drawer';
 import back from './imgs/back.svg';
-import mp3 from './test.mp3';
+import mp3 from './default.mp3';
 import ColorList from './color';
 
 function App() {
@@ -64,21 +64,21 @@ function App() {
   // 获取音乐url
   useEffect(() => {
     if (musicList.length > 0) {
-      setCurrentMusic(`http://39.103.151.105:64641/music?fileName=${musicList[0]}`);
+      setCurrentMusic(`http://39.103.151.150:64641/api/music?fileName=${musicList[0]}`);
     }
   }, [musicList]);
 
   // 获取图片url
   useEffect(() => {
     if (imgName) {
-      setImgSrc(`http://39.103.151.105:64641/img?imgPath=${imgName}`);
+      setImgSrc(`http://39.103.151.150:64641/api/img?imgPath=${imgName}`);
     }
   }, [imgName])
 
   // 获取历史列表
   useEffect(() => {
     if (showDrawer) {
-      fetch('/cards').then(response => response.json()).then(data => {
+      fetch('/api/cards').then(response => response.json()).then(data => {
         setHistory(data.map(item => {
           const currentEmo = ColorList.find(item => item.name.includes(item.emotionTag));
           return {
@@ -99,7 +99,7 @@ function App() {
     formData.append('musicName', musicList[0]);
     formData.append('text', words);
 
-    fetch('/card', {
+    fetch('/api/card', {
       method: 'POST',
       body: formData
     }).then(response => response.json()).then(data => {

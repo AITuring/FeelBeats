@@ -26,7 +26,7 @@ const Header = (props) => {
 
     const uploadProps = {
         name: 'file',
-        action: 'http://39.103.151.105:64641/fileUpload',
+        action: 'http://39.103.151.150:64641/api/fileUpload',
         showUploadList: false,
         onChange(info) {
             if (info.file.status !== 'uploading') {

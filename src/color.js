@@ -2,7 +2,7 @@ const ColorList = [
     {
         name: ['default'],
         color: '#efefef',
-        bgColor: '#efefef'
+        bgColor: '#999'
     },
     {
         name: ['无感','无聊','无所谓','随便','还好', '中性'],

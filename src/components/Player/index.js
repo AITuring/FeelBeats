@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import rotate from '../../imgs/rotate.svg';
 import './style.css'; // 导入组件样式
 
 function MP3Player(props) {
@@ -37,6 +38,7 @@ function MP3Player(props) {
                         background: props.coverColor ? props.coverColor : '#efefef',
                     }}
                 >
+                    <img src={rotate} alt="rotate" />
                 </div>
             </div>
             <audio ref={audioRef} src={props.src} />
