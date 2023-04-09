@@ -41,9 +41,13 @@
 }
 
 .iconEnter {
+    width: 20px;
+    height: 20px;
     cursor: pointer;
 }
 
 .iconNotEnter {
+    width: 20px;
+    height: 20px;
     cursor: not-allowed;
 }

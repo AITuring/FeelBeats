@@ -21,13 +21,23 @@
   font-size: 18px;
 }
 
+.showZone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imgShow {
+  margin: 10px;
+}
+
 .words {
-  width: 600px;
+  /* width: 600px; */
   /* height: 34px;
   line-height: 34px; */
-  position: absolute;
+  /* position: absolute;
   left: 50%;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, 0); */
   padding: 0 10px;
   background-color: transparent;
   font-size: 18px;
@@ -36,10 +46,10 @@
 .buttons {
   display: flex;
   align-items: center;
-  position: absolute;
+  /* position: absolute;
   left: 50%;
   top: 25%;
-  transform: translate(-50%, -25%);
+  transform: translate(-50%, -25%); */
 }
 
 .button {
