@@ -3,5 +3,19 @@
   width: 100vw;
   height: 100vh;
   position: relative;
+  overflow: hidden;
+}
+
+.input {
+  outline-style: none;
+  border: none;
+  width: 600px;
+  height: 34px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding: 0 10px;
+  background-color: #EFEFEF;
+  font-size: 16px;
 }
 

@@ -22,15 +22,14 @@ function MP3Player(props) {
     };
 
     return (
-        <>
-            <div class="card" >
-                <div class={isPlaying ? "needle" : "stop"} onClick={handlePlayPauseClick}></div>
-                <div class="icon_center">
-                    <img src={cover} alt="歌曲图片" class="song_img" />
+        <div className='record'>
+            <div class={isPlaying ? "needle" : "stop"} onClick={handlePlayPauseClick}></div>
+            <div class="center">
+                <div class="cover" onClick={handlePlayPauseClick}>
                 </div>
-                <audio ref={audioRef} src={props.src} />
             </div>
-        </>
+            <audio ref={audioRef} src={props.src} />
+        </div>
     );
 }
 
