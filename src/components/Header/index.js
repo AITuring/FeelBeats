@@ -13,9 +13,9 @@ const Header = (props) => {
 
     const showIcon = () => {
         // 正在播放，可以刷新
-        if (props.isPlaying) {
-            setCurrentIcon(refresh);
-        }
+        // if (props.isPlaying) {
+        //     setCurrentIcon(refresh);
+        // }
         if (props.musicList.length > 0) {
             setCurrentIcon(musicActive);
         }
@@ -50,15 +50,24 @@ const Header = (props) => {
         <div className="header">
             <img src={logo} alt="logo" className='logo' />
             <div className="bar">
-                <Upload {...uploadProps}>
+                {/* <Upload {...uploadProps}>
                     <img src={uploadImg} alt="uploadImg" className='icon' />
-                </Upload>
+                </Upload> */}
                 <div className="musicIcon">
                     <img
                         src={currentIcon}
                         alt="musicIcon"
                         className={props.musicList.length > 0 ? 'iconEnter' : 'iconNotEnter'}
                         onClick={() => {
+                            // 编辑状态，点击按钮，开始请求数据,不再输入
+                            if (props.inputMode) {
+                                props.setAnalysis(true);
+                                props.setInputMode(false);
+                            }
+                            // 白色按钮，点击开始播放
+                            // if (!props.isPlaying && props.musicList.length > 0) {
+                            //     props.setIsPlaying(!props.isPlaying);
+                            // }
                             // 已经播放，点击切换音乐
                             if (props.isPlaying) {
                                 // TODO

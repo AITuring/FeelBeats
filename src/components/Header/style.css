@@ -49,5 +49,6 @@
 .iconNotEnter {
     width: 20px;
     height: 20px;
-    cursor: not-allowed;
+    cursor: pointer;
+    /* cursor: not-allowed; */
 }

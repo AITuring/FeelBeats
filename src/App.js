@@ -30,11 +30,15 @@ function App() {
   const [imgName, setImgName] = useState('');
   // 图片文件
   const [imgSrc, setImgSrc] = useState('');
+  // 开始分析
+  const [analysis, setAnalysis] = useState(false);
+
+  console.log(emotion, analysis,musicList,inputMode, isPlaying);
 
   const debouncedSetWords = _.debounce((value) => setWords(value), 500);
   // 获取情感，音乐列表
   useEffect(() => {
-    if (words.length > 0) {
+    if (words.length > 0 && analysis) {
       fetch(`/api/emotion/text-emotion?message=${words}`).then(response => response.json())
         .then(data => {
           const res = ColorList.find(item => item.name.includes(data.emotion));
@@ -46,13 +50,14 @@ function App() {
             setEmotion(ColorList[1]);
           }
           setInputMode(false);
-          setIsPlaying(true);
+          // setIsPlaying(true);
           setMusicList(data.musicname.split(','));
 
         })
         .catch(error => console.error(error));
     }
-  }, [words])
+  }, [words,analysis])
+
 
   // 给输入框赋值
   useEffect(() => {
@@ -65,6 +70,8 @@ function App() {
   useEffect(() => {
     if (musicList.length > 0) {
       setCurrentMusic(`http://39.103.151.150:64641/api/music?fileName=${musicList[0]}`);
+      // 直接播放
+      setIsPlaying(true);
     }
   }, [musicList]);
 
@@ -120,8 +127,10 @@ function App() {
         setIsPlaying={setIsPlaying}
         isPlaying={isPlaying}
         inputMode={inputMode}
+        setInputMode={setInputMode}
         setCurrentMusic={setCurrentMusic}
         setImgName={setImgName}
+        setAnalysis={setAnalysis}
       />
       {/* 输入模式 */}
       {
@@ -153,6 +162,7 @@ function App() {
                   // 点击编辑，音乐停止播放
                   // input框回显
                   setInputMode(true);
+                  setAnalysis(false);
                   setIsPlaying(false);
                   // 返回默认情感
                   setEmotion(ColorList[0]);
