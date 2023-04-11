@@ -16,7 +16,7 @@
 
 .bar {
     position: absolute;
-    right: 5vw;
+    right: 3vw;
     display: flex;
     /* align-items: center; */
 }
@@ -33,6 +33,7 @@
     width: 38px;
     height: 38px;
     display: block;
+    margin-top: 16px;
     background: url('../../imgs/musicIconBg.png') no-repeat;
     background-size: 38px 38px;
     display: flex;

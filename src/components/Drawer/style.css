@@ -23,9 +23,15 @@
     align-items: center;
     flex-direction: column;
     cursor: pointer;
-    overflow: hidden;
 }
 
 .itemTime {
     font-weight: 300;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #999;
+}
+
+.itemText {
+    height: 160px;
 }

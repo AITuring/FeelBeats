@@ -27,9 +27,9 @@ function App() {
   // 播放音乐
   const [isPlaying, setIsPlaying] = useState(false);
   // 图片name
-  const [imgName, setImgName] = useState('');
+  // const [imgName, setImgName] = useState('');
   // 图片文件
-  const [imgSrc, setImgSrc] = useState('');
+  // const [imgSrc, setImgSrc] = useState('');
   // 开始分析
   const [analysis, setAnalysis] = useState(false);
 
@@ -37,6 +37,7 @@ function App() {
 
   const debouncedSetWords = _.debounce((value) => setWords(value), 500);
   // 获取情感，音乐列表
+  // 返回编辑，点击按钮需要请求新数据，然后再播放。不能直接播放
   useEffect(() => {
     if (words.length > 0 && analysis) {
       fetch(`/api/emotion/text-emotion?message=${words}`).then(response => response.json())
@@ -76,24 +77,25 @@ function App() {
   }, [musicList]);
 
   // 获取图片url
-  useEffect(() => {
-    if (imgName) {
-      setImgSrc(`http://39.103.151.150:64641/api/img?imgPath=${imgName}`);
-    }
-  }, [imgName])
+  // useEffect(() => {
+  //   if (imgName) {
+  //     setImgSrc(`http://39.103.151.150:64641/api/img?imgPath=${imgName}`);
+  //   }
+  // }, [imgName])
 
   // 获取历史列表
   useEffect(() => {
     if (showDrawer) {
       fetch('/api/cards').then(response => response.json()).then(data => {
-        setHistory(data.map(item => {
-          const currentEmo = ColorList.find(item => item.name.includes(item.emotionTag));
+        const newData = data.map(item => {
+          const currentEmo = ColorList.find(v => v.name.includes(item.emotionTag));
           return {
             ...item,
             bgColor: currentEmo? currentEmo.bgColor : ColorList[1].bgColor
           }
-        }));
-        console.log(history)
+        });
+  
+        setHistory(newData);
       })
     }
   }, [showDrawer])
@@ -102,7 +104,7 @@ function App() {
   const createCard = () => {
     const formData = new FormData();
     formData.append('emotionTag', emotion.name[0]);
-    formData.append('imgPath', imgName);
+    // formData.append('imgPath', imgName);
     formData.append('musicName', musicList[0]);
     formData.append('text', words);
 
@@ -129,7 +131,7 @@ function App() {
         inputMode={inputMode}
         setInputMode={setInputMode}
         setCurrentMusic={setCurrentMusic}
-        setImgName={setImgName}
+        // setImgName={setImgName}
         setAnalysis={setAnalysis}
       />
       {/* 输入模式 */}
@@ -154,7 +156,7 @@ function App() {
         !inputMode && (
           <div className='showZone'>
             <div className='words'>{words}</div>
-            <img src={imgSrc} alt="" className='imgShow' />
+            <div className='imgShow' ></div>
             <div className='buttons'>
               <div
                 className='button'
@@ -193,7 +195,7 @@ function App() {
               history={history}
               setIsPlaying={setIsPlaying}
               setCurrentMusic={setCurrentMusic}
-              setImgName={setImgName}
+              // setImgName={setImgName}
               setWords={setWords}
               setEmotion={setEmotion}
             />

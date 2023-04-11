@@ -74,9 +74,9 @@ const Header = (props) => {
                                 return
                             }
 
-                            if (props.musicList.length > 0) {
-                                props.setIsPlaying(!props.isPlaying);
-                            }
+                            // if (props.musicList.length > 0) {
+                            //     props.setIsPlaying(!props.isPlaying);
+                            // }
                         }}
                     />
                 </div>

@@ -38,7 +38,7 @@ function MP3Player(props) {
                         background: props.coverColor ? props.coverColor : '#efefef',
                     }}
                 >
-                    {/* <img src={rotate} alt="rotate" /> */}
+                    {/* <img ssrc={rotate} alt="rotate" /> */}
                 </div>
             </div>
             <audio ref={audioRef} src={props.src} />
